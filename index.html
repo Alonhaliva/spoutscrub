@@ -38,6 +38,10 @@ nav .small{font-size:14px;font-weight:700;text-decoration:none;background:var(--
 .ph.missing{display:none}
 .ph figcaption{position:absolute;left:12px;bottom:12px;background:rgba(13,20,19,.78);color:#fff;font-size:12px;font-weight:700;padding:6px 10px;border-radius:8px}
 .r45{aspect-ratio:4/5}.r11{aspect-ratio:1/1}
+video{display:block;width:100%;height:100%;object-fit:cover}
+.watch{background:var(--card);padding-block:64px}
+.watchgrid{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:48px;align-items:center}
+.vid{margin:0;aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:var(--ink);box-shadow:0 30px 60px -30px rgba(0,0,0,.4)}
 .concept{font-size:13px;color:var(--muted);margin-top:12px}
 
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding-block:24px 64px}
@@ -97,7 +101,8 @@ footer p{max-width:none}
 
 @media (max-width:860px){
   .hero,.split,.po{grid-template-columns:1fr}
-  .grid3,.status,.inside{grid-template-columns:1fr}
+  .grid3,.status,.inside,.watchgrid{grid-template-columns:1fr}
+  .vid{max-width:340px;width:100%;margin:0 auto}
   .hero{gap:28px;padding-block:12px 48px}
   section{padding-block:56px}
   form .row{grid-template-columns:1fr}
@@ -127,6 +132,19 @@ footer p{max-width:none}
     <figure class="ph r45"><img src="img/hero.jpg" alt="Hands sliding a teal silicone sleeve over the spout of a lilac water bottle lid"></figure>
   </header>
 </div>
+
+<section class="watch">
+  <div class="wrap watchgrid">
+    <figure class="vid"><video src="img/explainer-916.mp4" poster="img/explainer-poster.jpg" autoplay muted loop playsinline controls aria-label="20-second explainer video"></video></figure>
+    <div>
+      <div class="eyebrow">20-second explainer</div>
+      <h2>See how it works.</h2>
+      <p style="margin-top:18px">The problem, the sleeve, the three steps, the lids it's designed for and what's in the kit, in 20 seconds.</p>
+      <p class="concept">Made from AI concept images and a 3D model of the current design. There is no physical product yet.</p>
+      <div class="ctas"><a class="btn teal" href="#reserve">Reserve one, free</a></div>
+    </div>
+  </div>
+</section>
 
 <section style="padding-top:24px">
   <div class="wrap split">
@@ -165,11 +183,11 @@ footer p{max-width:none}
       </div>
     </div>
     <div class="inside">
-      <figure class="ph r11"><img src="img/inside.jpg" alt="3D cutaway of the sleeve over a spout, showing the ribs inside"></figure>
+      <figure class="ph r11"><video src="img/inside-loop.mp4" poster="img/inside.jpg" autoplay muted loop playsinline aria-label="3D cutaway animation: the sleeve slides over a spout and the ribs inside scrub it"></video></figure>
       <div>
         <div class="num" style="font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.14em;color:var(--teal)">INSIDE THE SLEEVE</div>
         <h3 style="margin:6px 0 8px">Ribs do the scrubbing.</h3>
-        <p>This cutaway removes the front of the sleeve. The thin ribs on the inside wall touch the spout all the way around, so one slide cleans the whole surface at once.</p>
+        <p>This animated cutaway removes the front of the sleeve. The thin ribs on the inside wall touch the spout all the way around, so one slide cleans the whole surface at once.</p>
         <p class="concept" style="color:#9fb0ac">3D model of the current design.</p>
       </div>
     </div>
