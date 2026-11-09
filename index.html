@@ -60,6 +60,8 @@ section{padding-block:72px}
 .step h3{margin:6px 0 8px}
 .step p{font-size:16px;margin:0}
 
+.inside{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:32px;align-items:center;margin-top:44px;padding-top:40px;border-top:1px solid rgba(255,255,255,.12)}
+.inside.solo{grid-template-columns:1fr}
 .bottle h3{margin-top:14px;font-size:18px}
 .bottle p{color:var(--muted);font-size:15px;margin:4px 0 0}
 
@@ -95,7 +97,7 @@ footer p{max-width:none}
 
 @media (max-width:860px){
   .hero,.split,.po{grid-template-columns:1fr}
-  .grid3,.status{grid-template-columns:1fr}
+  .grid3,.status,.inside{grid-template-columns:1fr}
   .hero{gap:28px;padding-block:12px 48px}
   section{padding-block:56px}
   form .row{grid-template-columns:1fr}
@@ -120,7 +122,7 @@ footer p{max-width:none}
         <a class="btn teal" href="#reserve">Reserve one, free</a>
         <a class="btn ghost" href="#how">How it works</a>
       </div>
-      <p class="concept" data-concept>Images on this page are concept renders. The first prototypes are being made now.</p>
+      <p class="concept" data-concept>The photos on this page are AI-generated concept images. There is no physical product yet. Prototypes are next.</p>
     </div>
     <figure class="ph r45"><img src="img/hero.jpg" alt="Hands sliding a teal silicone sleeve over the spout of a lilac water bottle lid"></figure>
   </header>
@@ -160,6 +162,15 @@ footer p{max-width:none}
         <div class="num">STEP 3</div>
         <h3>Rinse</h3>
         <p>Rinse the spout and the sleeve. Use the small pick for the seal groove.</p>
+      </div>
+    </div>
+    <div class="inside">
+      <figure class="ph r11"><img src="img/inside.jpg" alt="3D cutaway of the sleeve over a spout, showing the ribs inside"></figure>
+      <div>
+        <div class="num" style="font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.14em;color:var(--teal)">INSIDE THE SLEEVE</div>
+        <h3 style="margin:6px 0 8px">Ribs do the scrubbing.</h3>
+        <p>This cutaway removes the front of the sleeve. The thin ribs on the inside wall touch the spout all the way around, so one slide cleans the whole surface at once.</p>
+        <p class="concept" style="color:#9fb0ac">3D model of the current design.</p>
       </div>
     </div>
   </div>
@@ -213,7 +224,7 @@ footer p{max-width:none}
     <h2>It isn't for sale yet.</h2>
     <div class="status">
       <div class="st"><span class="tag">Done</span><h3>The design</h3><p>The sleeve, the kit and how it's used are worked out.</p></div>
-      <div class="st now"><span class="tag">Now</span><h3>First prototypes</h3><p>Making the first sleeves and testing the fit on real bottles.</p></div>
+      <div class="st now"><span class="tag">Now</span><h3>First prototypes</h3><p>Starting the first physical sleeves, then testing the fit on real bottles.</p></div>
       <div class="st"><span class="tag">Next</span><h3>A first production run</h3><p>Only if enough people reserve one. That's what this page is for.</p></div>
     </div>
   </div>
@@ -261,7 +272,7 @@ footer p{max-width:none}
 (function(){
   // Missing photo → hide its frame; if the hero or a split section loses its photo, go to one column.
   document.querySelectorAll('.ph img').forEach(function(img){
-    function gone(){var f=img.closest('.ph');f.classList.add('missing');var p=f.parentElement;if(p.classList.contains('hero')||p.classList.contains('split'))p.classList.add('solo');check()}
+    function gone(){var f=img.closest('.ph');f.classList.add('missing');var p=f.parentElement;if(p.classList.contains('hero')||p.classList.contains('split')||p.classList.contains('inside'))p.classList.add('solo');check()}
     if(img.complete&&img.naturalWidth===0)gone();else img.addEventListener('error',gone);
   });
   // Only show the "concept renders" note while at least one photo is on the page.
